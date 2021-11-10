@@ -1,0 +1,21 @@
+<h1><%= @restaurant.name %></h1>
+
+<h2>Address :</h2>
+<%= @restaurant.address %>
+
+<h2>Rating :</h2>
+<%= @restaurant.category %>
+
+<h2>Phone number :</h2>
+<%= @restaurant.phone_number unless @restaurant.phone_number.nil? %>
+
+<ul>
+  <% @reviews.each do |review| %>
+    <li>
+      <h3><%= review.rating.to_s %> Stars</h3>
+      <p><%= review.content %></p>
+    </li>
+  <% end %>
+</ul>
+<br>
+<%= link_to("Create a new review", new_restaurant_review_path(params[:id])) %>
